@@ -2,8 +2,7 @@ package ru.peil.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
+import ru.peil.converter.BirthdayConverter;
 
 @Table(name = "users", schema = "public")
 @Entity
@@ -16,8 +15,8 @@ public class User {
     private String username;
     private String firstname;
     private String lastname;
-    private LocalDate birthDate;
-    private Integer age;
+    //@Convert(converter = BirthdayConverter.class)
+    private Birthday birthDate;
     @Enumerated(EnumType.STRING)
     private Role role;
 }

@@ -3,6 +3,7 @@ package ru.peil;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import org.junit.jupiter.api.Test;
+import ru.peil.models.Birthday;
 import ru.peil.models.User;
 
 import java.lang.reflect.Field;
@@ -23,8 +24,7 @@ class HibernateRunnerTest {
                 .username("anna@gmail.com")
                 .lastname("Frolova1")
                 .firstname("Anna")
-                .birthDate(LocalDate.of(2000, 4, 23))
-                .age(23)
+                .birthDate(new Birthday(LocalDate.of(2000, 4, 23)))
                 .build();
         final Class<? extends User> userClass = user.getClass();
         final String tableName = Optional.ofNullable(userClass.getAnnotation(Table.class))
